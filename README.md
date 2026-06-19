@@ -35,17 +35,28 @@ Expected current result:
 10 passed
 ```
 
-## Run Benchmark
+## Run Main Benchmark
 
 ```bash
-python scripts/run_final_benchmarks.py \
-  --methods tileflow \
+python scripts/run_same_data_benchmarks.py \
+  --methods all \
   --checkpoint-dir results/checkpoints \
-  --output-dir results/benchmarks/final_tileflow \
+  --tileflow-checkpoint results/checkpoints/tileflow.pt \
+  --output-dir results/benchmarks/main_benchmark \
   --n 4 \
   --device cpu \
   --visuals
 ```
+
+## Project Benchmark
+
+The submitted benchmark uses a same-data, no-pretraining, `center_expand`
+setting with a 20-epoch training budget. It includes TileFlow, MarioGPT
+same-data small, MarioDiffusion same-data small, and random_fill. It excludes
+HF-pretrained supplementary runs, full-paper-scale comparisons, retry/smoke
+outputs, and baseline checkpoints.
+
+Summary: `results/benchmarks/main_benchmark/SUBMISSION_SUMMARY.md`
 
 ## External Baselines
 

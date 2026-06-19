@@ -118,6 +118,27 @@ def _sanitize_external_level(level: list[str], width: int) -> list[str]:
     return normalize_level(rows, width=width)
 
 
+def _decode_mariogpt_tensor(level_tensor: torch.Tensor, tokenizer, width: int) -> list[str]:
+    ids = level_tensor.detach().cpu().flatten().tolist()
+    chars: list[str] = []
+    allowed = set(VOCAB)
+    for token_id in ids:
+        text = tokenizer.decode([int(token_id)], clean_up_tokenization_spaces=False).replace(" ", "")
+        char = next((ch for ch in text if ch in allowed), "-")
+        chars.append(char)
+
+    if len(chars) % MAP_HEIGHT:
+        chars = chars[: len(chars) - (len(chars) % MAP_HEIGHT)]
+    columns = [chars[i : i + MAP_HEIGHT] for i in range(0, len(chars), MAP_HEIGHT)]
+    if not columns:
+        return ["-" * width for _ in range(MAP_HEIGHT)]
+
+    rows = []
+    for row in range(MAP_HEIGHT):
+        rows.append("".join(column[::-1][row] for column in columns if len(column) == MAP_HEIGHT))
+    return normalize_level(rows, width=width)
+
+
 class MarioGPTFullAdapter(FillModel):
     """Original MarioGPT HF model projected into the center-expand contract."""
 
@@ -126,9 +147,11 @@ class MarioGPTFullAdapter(FillModel):
     def __init__(
         self,
         model_path: str = "shyamsn97/Mario-GPT2-700-context-length",
+        tokenizer_path: str | None = None,
         width: int = DEFAULT_W,
         temperature: float = 2.0,
         device: str = "cpu",
+        count_prompter: bool = False,
     ) -> None:
         _require_path(MARIOGPT_ROOT, "external/mario-gpt checkout")
         _import_from(MARIOGPT_ROOT)
@@ -145,7 +168,20 @@ class MarioGPTFullAdapter(FillModel):
         self.temperature = temperature
         self.device = torch.device(device)
         self.model_path = model_path
-        self.model = MarioLM(lm_path=model_path, tokenizer_path=model_path).to(self.device)
+        self.tokenizer_path = tokenizer_path or model_path
+        prompter = None
+        if count_prompter:
+            from tileflow.benchmarks.mariogpt_prompt import CountFeaturePrompter
+
+            prompter = CountFeaturePrompter()
+        self.model = MarioLM(
+            lm_path=model_path,
+            tokenizer_path=self.tokenizer_path,
+            prompter=prompter,
+        ).to(self.device)
+        if count_prompter:
+            self.model.prompter.level_tokenizer = self.model.tokenizer
+            self.model.prompter.hidden_dim = getattr(self.model.lm.config, "n_embd", 768)
 
     def fill(self, level: list[str], mask: np.ndarray) -> list[str]:
         validate_fill_io(level, mask, width=self.width)
@@ -159,8 +195,14 @@ class MarioGPTFullAdapter(FillModel):
         if isinstance(generated, list):
             generated = generated[0]
         if generated.level is None:
-            raise RuntimeError("MarioGPT returned no text level.")
-        candidate = _sanitize_external_level(generated.level, self.width)
+            tensor = getattr(generated, "sample_predictions_tensor", None)
+            if tensor is None:
+                tensor = getattr(generated, "level_tensor", None)
+            if tensor is None:
+                raise RuntimeError("MarioGPT returned neither text nor token tensor.")
+            candidate = _decode_mariogpt_tensor(tensor, self.model.tokenizer, self.width)
+        else:
+            candidate = _sanitize_external_level(generated.level, self.width)
         return _overlay_known(level, candidate, mask)
 
 

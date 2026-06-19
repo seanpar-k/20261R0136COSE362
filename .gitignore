@@ -28,6 +28,11 @@ external/
 
 # Keep final submission artifacts under results/, but ignore future scratch probes.
 results/probes/
+results/checkpoints/tileflow_v*.pt
+results/benchmarks/final_tileflow_v*/
+results/benchmarks/tileflow_v*/
+results/tileflow/tileflow_v*/
+results/visuals/tileflow_v*/
 
 # Non-submission benchmark archives/reruns
 results/benchmarks/final_full_available/
@@ -36,3 +41,6 @@ results/baselines/
 results/benchmarks/final_v1.4_comparison/
 results/benchmarks/same_data_v1.4_missing_checkpoints/
 results/benchmarks/same_data_v1.4_partial/
+results/benchmarks/same_data_v1.4_colab20_mariogpt_retry/
+results/benchmarks/same_data_v1.4_mariodiffusion_smoke/
+results/benchmarks/same_data_v*/

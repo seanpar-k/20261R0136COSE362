@@ -1,0 +1,77 @@
+{
+  "scope": "main same-data no-pretraining center_expand benchmark",
+  "training_budget": "20 epochs",
+  "submission_message": "With limited data for solo/indie tile-map expansion, TileFlow provides the most practical result.",
+  "eval_set": [
+    "mario-1-2.txt",
+    "mario-4-1.txt",
+    "mario-6-3.txt"
+  ],
+  "mask": "center_expand",
+  "width": 80,
+  "stride": 10,
+  "samples_per_window": 4,
+  "baseline_policy": {
+    "pretrained_hf_weights": "disallowed for MarioGPT and MarioDiffusion in this runner",
+    "mariogpt_same_data": "external MarioGPT code path trained from scratch on the same project training split with a small config",
+    "mariodiffusion_same_data": "external MarioDiffusion code path trained from scratch on the same project training split with a small config",
+    "projection": "External open-ended generators are projected into the center_expand contract by preserving the known center cells after generation."
+  },
+  "excluded_material": [
+    "HF pretrained supplementary runs",
+    "full-paper-scale comparisons",
+    "retry/smoke outputs",
+    "baseline checkpoints"
+  ],
+  "paths": {
+    "tileflow_checkpoint": "results/checkpoints/tileflow.pt",
+    "benchmark_summary": "results/benchmarks/main_benchmark/SUBMISSION_SUMMARY.md"
+  },
+  "rows": [
+    {
+      "method": "random_fill",
+      "known_preserved": true,
+      "completable_rate": 0.015625,
+      "tpk_kl_2x2": 9.343849531873001,
+      "playable_masked_diversity": 0.9196428571428571,
+      "struct_viol_per_col": 2.1900390625,
+      "continuity_score": 0.3807198660714286,
+      "descriptor_distance": 12.29190483040556
+    },
+    {
+      "method": "MarioGPT same-data small",
+      "known_preserved": true,
+      "completable_rate": 0.6640625,
+      "tpk_kl_2x2": 3.7219307618826485,
+      "playable_masked_diversity": 0.5197257474418339,
+      "struct_viol_per_col": 0.76220703125,
+      "continuity_score": 0.5825529387491286,
+      "descriptor_distance": 5.94981129182043
+    },
+    {
+      "method": "MarioDiffusion same-data small",
+      "known_preserved": true,
+      "completable_rate": 0.0078125,
+      "tpk_kl_2x2": 0.10412469206474369,
+      "playable_masked_diversity": 0,
+      "struct_viol_per_col": 0.32802734375,
+      "continuity_score": 0.5380887045893392,
+      "descriptor_distance": 3.3548182988473165
+    },
+    {
+      "method": "TileFlow",
+      "known_preserved": true,
+      "completable_rate": 0.7578125,
+      "tpk_kl_2x2": 0.10592616849134419,
+      "playable_masked_diversity": 0.17577467520513362,
+      "struct_viol_per_col": 0.14726562499999998,
+      "continuity_score": 0.8695045632434142,
+      "descriptor_distance": 1.444604157527565
+    }
+  ],
+  "failures": {},
+  "notes": [
+    "Main benchmark only: same-data, no Hugging Face pretrained baseline weights, center_expand task, 20-epoch training budget.",
+    "External baseline repositories and baseline checkpoints are intentionally excluded from the submitted repository."
+  ]
+}
