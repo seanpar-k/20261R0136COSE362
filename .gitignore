@@ -13,9 +13,25 @@ __pycache__/
 # Archived or non-submission local material
 old/
 
+# Internal project-management notes kept locally, not submitted
+AGENT.md
+LOG.md
+PLAN.md
+TASK.md
+SKILL.md
+MARIO_GRAMMAR.md
+
 # Vendored external baseline repositories and downloaded model assets.
 # Re-clone/download these when reproducing full external benchmarks.
 external/
 
 # Keep final submission artifacts under results/, but ignore future scratch probes.
 results/probes/
+
+# Non-submission benchmark archives/reruns
+results/benchmarks/final_full_available/
+results/benchmarks/final_benchmark_diagnostic.md
+results/baselines/
+results/benchmarks/final_v1.4_comparison/
+results/benchmarks/same_data_v1.4_missing_checkpoints/
+results/benchmarks/same_data_v1.4_partial/
