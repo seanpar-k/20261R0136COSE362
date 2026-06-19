@@ -142,7 +142,7 @@ def main() -> None:
     parser.add_argument(
         "--tileflow-checkpoint",
         type=Path,
-        default=Path("results/checkpoints/tileflow_v1.4.pt"),
+        default=Path("results/checkpoints/tileflow.pt"),
     )
     parser.add_argument("--width", type=int, default=DEFAULT_W)
     parser.add_argument("--stride", type=int, default=10)

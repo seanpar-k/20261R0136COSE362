@@ -28,7 +28,9 @@ All other `*.txt` files in this folder, including every `lost-levels-*.txt` file
 - Added Lost Levels file count: 22
 - Total top-level map files after expansion: 37
 - Top-level Lost Levels files were preprocessed to exactly 14 rows for training.
-- Raw downloaded Lost Levels files are preserved under `data/raw/lost_levels_original/`.
+- Raw downloaded Lost Levels files are kept locally under
+  `data/raw/lost_levels_original/`; that local archive is intentionally not
+  committed.
 - Lost Levels unknown vocabulary characters: none
 - Lost Levels observed tile characters: `-<>?BEQSX[]bo`
 - Preprocessing uses bottom alignment: shorter raw maps get sky rows prepended, and taller raw maps keep the bottom 14 rows. This preserves ground and obstacle row placement better than padding below the level.

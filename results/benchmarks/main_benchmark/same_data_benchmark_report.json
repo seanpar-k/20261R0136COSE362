@@ -25,7 +25,7 @@
     "baseline checkpoints"
   ],
   "paths": {
-    "tileflow_checkpoint": "results/checkpoints/tileflow_v1.4.pt",
+    "tileflow_checkpoint": "results/checkpoints/tileflow.pt",
     "benchmark_summary": "results/benchmarks/main_benchmark/benchmark_summary.md"
   },
   "rows": [
