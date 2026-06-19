@@ -37,11 +37,15 @@ Expected current result:
 
 ## Run Main Benchmark
 
+The committed TileFlow checkpoint is `results/checkpoints/tileflow.pt`.
+The MarioDiffusion-style same-data baseline checkpoint is not committed; prepare
+that local baseline under `results/baselines/` before rerunning all methods.
+
 ```bash
 python scripts/run_same_data_benchmarks.py \
   --methods all \
   --checkpoint-dir results/checkpoints \
-  --tileflow-checkpoint results/checkpoints/tileflow_v1.4.pt \
+  --tileflow-checkpoint results/checkpoints/tileflow.pt \
   --mariodiffusion-model-path results/baselines/same_data_v1.4/mariodiffusion_colab20 \
   --output-dir results/benchmarks/main_benchmark \
   --n 4 \
