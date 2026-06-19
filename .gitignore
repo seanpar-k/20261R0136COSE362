@@ -1,0 +1,21 @@
+# Local environments and caches
+.venv/
+.hf-cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# OS/editor local files
+.DS_Store
+**/.DS_Store
+.claude/
+
+# Archived or non-submission local material
+old/
+
+# Vendored external baseline repositories and downloaded model assets.
+# Re-clone/download these when reproducing full external benchmarks.
+external/
+
+# Keep final submission artifacts under results/, but ignore future scratch probes.
+results/probes/

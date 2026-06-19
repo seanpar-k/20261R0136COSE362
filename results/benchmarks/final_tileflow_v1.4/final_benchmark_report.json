@@ -1,0 +1,31 @@
+{
+  "scope": "final center_expand benchmark set",
+  "tileflow_version": "v1.4",
+  "eval_set": [
+    "mario-1-2.txt",
+    "mario-4-1.txt",
+    "mario-6-3.txt"
+  ],
+  "mask": "center_expand",
+  "width": 80,
+  "stride": 10,
+  "samples_per_window": 4,
+  "external_baseline_policy": {
+    "mariogpt_full": "original external/mario-gpt MarioLM using HF model path, projected into center_expand by preserving known center cells",
+    "mariodiffusion_full": "original external/MarioDiffusion TextConditionalDDPMPipeline using HF model path, projected into center_expand by preserving known center cells",
+    "limitation": "Original public APIs are text/open-ended generators, not exact center-inpainting APIs. The benchmark adapter preserves the same center mask after generation and records this limitation."
+  },
+  "rows": [
+    {
+      "method": "tileflow_v1.4",
+      "known_preserved": true,
+      "completable_rate": 0.7578125,
+      "tpk_kl_2x2": 0.10592616849134417,
+      "playable_masked_diversity": 0.17577467520513362,
+      "struct_viol_per_col": 0.14726562499999998,
+      "continuity_score": 0.8695045632434142,
+      "descriptor_distance": 1.444604157527565
+    }
+  ],
+  "failures": {}
+}

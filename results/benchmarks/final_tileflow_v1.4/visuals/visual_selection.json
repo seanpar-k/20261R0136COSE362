@@ -1,0 +1,268 @@
+{
+  "root": "results/benchmarks/final_tileflow_v1.4",
+  "visual_root": "results/benchmarks/final_tileflow_v1.4/visuals",
+  "mask_name": "center_expand",
+  "selection_policy": {
+    "main": "median-quality sample per eval source and method",
+    "appendix": "best, median, and worst samples per eval source and method",
+    "canonical_window": "middle available window shared by methods when possible",
+    "score": "lower is better; combines contract, playability, structure, continuity, and style"
+  },
+  "canonical_windows": {
+    "mario-1-2": 4,
+    "mario-4-1": 7,
+    "mario-6-3": 4
+  },
+  "contexts": [
+    {
+      "source": "mario-1-2",
+      "window_index": 4,
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/contexts/mario-1-2__window_004__context.png",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/context.txt"
+    },
+    {
+      "source": "mario-4-1",
+      "window_index": 7,
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/contexts/mario-4-1__window_007__context.png",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/context.txt"
+    },
+    {
+      "source": "mario-6-3",
+      "window_index": 4,
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/contexts/mario-6-3__window_004__context.png",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/context.txt"
+    }
+  ],
+  "main": [
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-1-2",
+      "window_index": 4,
+      "sample_index": 0,
+      "role": "median",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/main/mario-1-2/tileflow_v1.4__mario-1-2__window_004__sample_000__median.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/center_expand/sample_000.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0125,
+        "continuity_score": 0.8612920382898268,
+        "descriptor_distance": 1.9122071050642475,
+        "selection_score": 2.202123028484594
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-4-1",
+      "window_index": 7,
+      "sample_index": 3,
+      "role": "median",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/main/mario-4-1/tileflow_v1.4__mario-4-1__window_007__sample_003__median.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/center_expand/sample_003.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0,
+        "continuity_score": 0.7408953159246584,
+        "descriptor_distance": 0.24762849584278157,
+        "selection_score": 0.7658378639934648
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-6-3",
+      "window_index": 4,
+      "sample_index": 3,
+      "role": "median",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/main/mario-6-3/tileflow_v1.4__mario-6-3__window_004__sample_003__median.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/center_expand/sample_003.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.475,
+        "continuity_score": 0.6868272396629678,
+        "descriptor_distance": 4.622467876039305,
+        "selection_score": 5.7238133967133695
+      }
+    }
+  ],
+  "appendix": [
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-1-2",
+      "window_index": 4,
+      "sample_index": 1,
+      "role": "best",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-1-2/tileflow_v1.4__mario-1-2__window_004__sample_001__best.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/center_expand/sample_001.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0,
+        "continuity_score": 0.9902328986491062,
+        "descriptor_distance": 1.6771730914588057,
+        "selection_score": 1.6967072941605932
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-1-2",
+      "window_index": 4,
+      "sample_index": 0,
+      "role": "median",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-1-2/tileflow_v1.4__mario-1-2__window_004__sample_000__median.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/center_expand/sample_000.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0125,
+        "continuity_score": 0.8612920382898268,
+        "descriptor_distance": 1.9122071050642475,
+        "selection_score": 2.202123028484594
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-1-2",
+      "window_index": 4,
+      "sample_index": 2,
+      "role": "worst",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-1-2/tileflow_v1.4__mario-1-2__window_004__sample_002__worst.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/center_expand/sample_002.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-1-2/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0125,
+        "continuity_score": 0.8492109382127351,
+        "descriptor_distance": 1.994775132275132,
+        "selection_score": 2.308853255849662
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-4-1",
+      "window_index": 7,
+      "sample_index": 1,
+      "role": "best",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-4-1/tileflow_v1.4__mario-4-1__window_007__sample_001__best.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/center_expand/sample_001.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0125,
+        "continuity_score": 0.7408953159246584,
+        "descriptor_distance": 0.0784108087679516,
+        "selection_score": 0.6091201769186347
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-4-1",
+      "window_index": 7,
+      "sample_index": 3,
+      "role": "median",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-4-1/tileflow_v1.4__mario-4-1__window_007__sample_003__median.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/center_expand/sample_003.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0,
+        "continuity_score": 0.7408953159246584,
+        "descriptor_distance": 0.24762849584278157,
+        "selection_score": 0.7658378639934648
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-4-1",
+      "window_index": 7,
+      "sample_index": 0,
+      "role": "worst",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-4-1/tileflow_v1.4__mario-4-1__window_007__sample_000__worst.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/center_expand/sample_000.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-4-1/window_007/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.0125,
+        "continuity_score": 0.6266472358542898,
+        "descriptor_distance": 1.5246409674981103,
+        "selection_score": 2.283846495789531
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-6-3",
+      "window_index": 4,
+      "sample_index": 1,
+      "role": "best",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-6-3/tileflow_v1.4__mario-6-3__window_004__sample_001__best.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/center_expand/sample_001.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.7,
+        "continuity_score": 0.9877249033032891,
+        "descriptor_distance": 3.4460506424792134,
+        "selection_score": 4.170600835872635
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-6-3",
+      "window_index": 4,
+      "sample_index": 3,
+      "role": "median",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-6-3/tileflow_v1.4__mario-6-3__window_004__sample_003__median.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/center_expand/sample_003.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.475,
+        "continuity_score": 0.6868272396629678,
+        "descriptor_distance": 4.622467876039305,
+        "selection_score": 5.7238133967133695
+      }
+    },
+    {
+      "method": "tileflow_v1.4",
+      "source": "mario-6-3",
+      "window_index": 4,
+      "sample_index": 2,
+      "role": "worst",
+      "image": "results/benchmarks/final_tileflow_v1.4/visuals/appendix/mario-6-3/tileflow_v1.4__mario-6-3__window_004__sample_002__worst.png",
+      "sample": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/center_expand/sample_002.txt",
+      "context": "results/benchmarks/final_tileflow_v1.4/tileflow_v1.4/mario-6-3/window_004/context.txt",
+      "metrics": {
+        "known_preserved": true,
+        "completable": true,
+        "progress": 1.0,
+        "struct_viol_per_col": 0.4875,
+        "continuity_score": 0.7376224991944129,
+        "descriptor_distance": 4.969746787603931,
+        "selection_score": 5.982001789215105
+      }
+    }
+  ]
+}
