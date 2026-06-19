@@ -12,6 +12,7 @@ __pycache__/
 
 # Archived or non-submission local material
 old/
+data/raw/lost_levels_original/
 
 # Internal project-management notes kept locally, not submitted
 AGENT.md
