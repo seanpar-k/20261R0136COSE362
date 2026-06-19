@@ -10,12 +10,7 @@ while preserving the center tiles exactly.
 - `scripts/`: training, rendering, and benchmark entrypoints
 - `tests/`: smoke and contract tests
 - `data/`: Mario-style text levels used by the project
-- `results/`: final submission artifacts
-  - `results/checkpoints/tileflow_v1.4.pt`
-  - `results/benchmarks/tileflow_v1.4/`
-  - `results/benchmarks/final_tileflow_v1.4/`
-  - `results/benchmarks/final_full_available/`
-  - `results/visuals/tileflow_v1.4/`
+- `results/`: generated checkpoints, benchmark outputs, and visual samples
 
 Local archives, virtual environments, Hugging Face caches, and external
 baseline checkouts are intentionally ignored by Git.
@@ -40,37 +35,26 @@ Expected current result:
 10 passed
 ```
 
-## Run TileFlow v1.4 Benchmark
+## Run Benchmark
 
 ```bash
 python scripts/run_final_benchmarks.py \
   --methods tileflow \
-  --tileflow-version v1.4 \
   --checkpoint-dir results/checkpoints \
-  --output-dir results/benchmarks/final_tileflow_v1.4 \
+  --output-dir results/benchmarks/final_tileflow \
   --n 4 \
   --device cpu \
   --visuals
 ```
-
-## Final TileFlow v1.4 Result
-
-| Method | Known preserved | Completable | Fidelity KL | Playable diversity | Structure errors | Boundary continuity | Style distance |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| tileflow_v1.4 | pass | 0.7578 | 0.1059 | 0.1758 | 0.1473 | 0.8695 | 1.4446 |
 
 ## External Baselines
 
 The final benchmark session used external MarioDiffusion and MarioGPT
 repositories locally, but those repositories and downloaded model weights are
 not committed here. To reproduce full external baselines, clone/download them
-separately according to `results/benchmarks/final_benchmark_diagnostic.md` and
-the notes in `LOG.md`.
+separately and point the benchmark scripts to those local checkouts.
 
 ## Notes
 
-- The active submitted TileFlow artifact is `v1.4`.
-- Historical probes and old model outputs were moved to local archive paths
-  under `old/`, which is ignored by Git.
 - The project goal is stochastic center-conditioned generation, not hidden
   target-tile reconstruction.
