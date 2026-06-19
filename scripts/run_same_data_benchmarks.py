@@ -117,7 +117,7 @@ def _write_report(args: argparse.Namespace, rows: list[dict], failures: dict[str
             "mariogpt_tokenizer_path": args.mariogpt_tokenizer_path,
             "mariodiffusion_model_path": args.mariodiffusion_model_path,
             "tileflow_checkpoint": str(args.tileflow_checkpoint),
-            "benchmark_summary": str(args.output_dir / "SUBMISSION_SUMMARY.md"),
+            "benchmark_summary": str(args.output_dir / "benchmark_summary.md"),
         },
         "rows": rows,
         "failures": failures,

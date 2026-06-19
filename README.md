@@ -57,7 +57,7 @@ MarioGPT-style Causal AR, MarioDiffusion-style Same-Data, and Random Fill.
 It excludes HF-pretrained supplementary runs, full-paper-scale comparisons,
 retry/smoke outputs, and baseline checkpoints.
 
-Summary: `results/benchmarks/main_benchmark/SUBMISSION_SUMMARY.md`
+Summary: `results/benchmarks/main_benchmark/benchmark_summary.md`
 Visual samples in `results/benchmarks/main_benchmark/visuals/main/` are
 rule-selected examples from the same benchmark run.
 
