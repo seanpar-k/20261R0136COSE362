@@ -11,12 +11,12 @@
   "width": 80,
   "stride": 10,
   "samples_per_window": 4,
-  "visual_selection": "best-selected examples from the same benchmark run",
+  "visual_selection": "rule-selected examples from the same benchmark run",
   "baseline_policy": {
-    "pretrained_hf_weights": "disallowed for MarioGPT and MarioDiffusion in this runner",
-    "mariogpt_same_data": "external MarioGPT code path trained from scratch on the same project training split with a small config",
-    "mariodiffusion_same_data": "external MarioDiffusion code path trained from scratch on the same project training split with a small config",
-    "projection": "External open-ended generators are projected into the center_expand contract by preserving the known center cells after generation."
+    "pretrained_hf_weights": "disallowed for MarioGPT and MarioDiffusion in the submitted benchmark",
+    "mariogpt_style_causal_ar": "local MarioGPT-style causal autoregressive baseline fitted on the same project training split; not the original full pretrained MarioGPT model",
+    "mariodiffusion_style_same_data": "MarioDiffusion-style same-data baseline trained from scratch on the same project training split under the 20-epoch project budget; not the original full pretrained MarioDiffusion model",
+    "projection": "All methods are evaluated through the same center_expand contract, preserving the known center cells and scoring the generated left/right context."
   },
   "excluded_material": [
     "HF pretrained supplementary runs",
@@ -25,40 +25,10 @@
     "baseline checkpoints"
   ],
   "paths": {
-    "tileflow_checkpoint": "results/checkpoints/tileflow.pt",
+    "tileflow_checkpoint": "results/checkpoints/tileflow_v1.4.pt",
     "benchmark_summary": "results/benchmarks/main_benchmark/SUBMISSION_SUMMARY.md"
   },
   "rows": [
-    {
-      "method": "random_fill",
-      "known_preserved": true,
-      "completable_rate": 0.015625,
-      "tpk_kl_2x2": 9.343849531873001,
-      "playable_masked_diversity": 0.9196428571428571,
-      "struct_viol_per_col": 2.1900390625,
-      "continuity_score": 0.3807198660714286,
-      "descriptor_distance": 12.29190483040556
-    },
-    {
-      "method": "MarioGPT same-data small",
-      "known_preserved": true,
-      "completable_rate": 0.6640625,
-      "tpk_kl_2x2": 3.7219307618826485,
-      "playable_masked_diversity": 0.5197257474418339,
-      "struct_viol_per_col": 0.76220703125,
-      "continuity_score": 0.5825529387491286,
-      "descriptor_distance": 5.94981129182043
-    },
-    {
-      "method": "MarioDiffusion same-data small",
-      "known_preserved": true,
-      "completable_rate": 0.0078125,
-      "tpk_kl_2x2": 0.10412469206474369,
-      "playable_masked_diversity": 0,
-      "struct_viol_per_col": 0.32802734375,
-      "continuity_score": 0.5380887045893392,
-      "descriptor_distance": 3.3548182988473165
-    },
     {
       "method": "TileFlow",
       "known_preserved": true,
@@ -68,11 +38,43 @@
       "struct_viol_per_col": 0.14726562499999998,
       "continuity_score": 0.8695045632434142,
       "descriptor_distance": 1.444604157527565
+    },
+    {
+      "method": "MarioGPT-style Causal AR",
+      "known_preserved": true,
+      "completable_rate": 0.1171875,
+      "tpk_kl_2x2": 0.13005732267879472,
+      "playable_masked_diversity": 0.1400388726919339,
+      "struct_viol_per_col": 0.27421875,
+      "continuity_score": 0.7133701654052925,
+      "descriptor_distance": 2.556529511190856
+    },
+    {
+      "method": "MarioDiffusion-style Same-Data",
+      "known_preserved": true,
+      "completable_rate": 0.0078125,
+      "tpk_kl_2x2": 0.10412469206474369,
+      "playable_masked_diversity": 0,
+      "struct_viol_per_col": 0.32802734375,
+      "continuity_score": 0.5380887045893392,
+      "descriptor_distance": 3.3548182988473165
+    },
+    {
+      "method": "Random Fill",
+      "known_preserved": true,
+      "completable_rate": 0.015625,
+      "tpk_kl_2x2": 9.343849531873001,
+      "playable_masked_diversity": 0.9196428571428571,
+      "struct_viol_per_col": 2.1900390625,
+      "continuity_score": 0.3807198660714286,
+      "descriptor_distance": 12.29190483040556
     }
   ],
   "failures": {},
   "notes": [
     "Main benchmark only: same-data, no Hugging Face pretrained baseline weights, center_expand task, 20-epoch training budget.",
+    "TileFlow uses the canonical v1.4 checkpoint, but is displayed without a version in the table.",
+    "MarioGPT-style Causal AR and MarioDiffusion-style Same-Data are project-scale baselines, not full pretrained MarioGPT or MarioDiffusion claims.",
     "External baseline repositories and baseline checkpoints are intentionally excluded from the submitted repository."
   ]
 }

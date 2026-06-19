@@ -43,4 +43,5 @@ results/benchmarks/same_data_v1.4_missing_checkpoints/
 results/benchmarks/same_data_v1.4_partial/
 results/benchmarks/same_data_v1.4_colab20_mariogpt_retry/
 results/benchmarks/same_data_v1.4_mariodiffusion_smoke/
+results/benchmarks/mariogpt_causal_ar_v1.4_check/
 results/benchmarks/same_data_v*/

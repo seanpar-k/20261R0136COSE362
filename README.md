@@ -41,7 +41,8 @@ Expected current result:
 python scripts/run_same_data_benchmarks.py \
   --methods all \
   --checkpoint-dir results/checkpoints \
-  --tileflow-checkpoint results/checkpoints/tileflow.pt \
+  --tileflow-checkpoint results/checkpoints/tileflow_v1.4.pt \
+  --mariodiffusion-model-path results/baselines/same_data_v1.4/mariodiffusion_colab20 \
   --output-dir results/benchmarks/main_benchmark \
   --n 4 \
   --device cpu \
@@ -51,21 +52,22 @@ python scripts/run_same_data_benchmarks.py \
 ## Project Benchmark
 
 The submitted benchmark uses a same-data, no-pretraining, `center_expand`
-setting with a 20-epoch training budget. It includes TileFlow, MarioGPT
-same-data small, MarioDiffusion same-data small, and random_fill. It excludes
-HF-pretrained supplementary runs, full-paper-scale comparisons, retry/smoke
-outputs, and baseline checkpoints.
+setting with a 20-epoch training budget. It includes TileFlow,
+MarioGPT-style Causal AR, MarioDiffusion-style Same-Data, and Random Fill.
+It excludes HF-pretrained supplementary runs, full-paper-scale comparisons,
+retry/smoke outputs, and baseline checkpoints.
 
 Summary: `results/benchmarks/main_benchmark/SUBMISSION_SUMMARY.md`
 Visual samples in `results/benchmarks/main_benchmark/visuals/main/` are
-best-selected examples from the same benchmark run.
+rule-selected examples from the same benchmark run.
 
 ## External Baselines
 
-The final benchmark session used external MarioDiffusion and MarioGPT
-repositories locally, but those repositories and downloaded model weights are
-not committed here. To reproduce full external baselines, clone/download them
-separately and point the benchmark scripts to those local checkouts.
+The submitted benchmark uses a MarioDiffusion-style same-data local checkpoint.
+External repositories, downloaded model weights, retry runs, and full
+paper-scale experiments are not committed here. Diagnostic MarioGPT external
+runs were attempted locally but are not included in the submitted benchmark
+because the reliable project comparison uses `MarioGPT-style Causal AR`.
 
 ## Notes
 
