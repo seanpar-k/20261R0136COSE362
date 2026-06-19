@@ -57,6 +57,8 @@ HF-pretrained supplementary runs, full-paper-scale comparisons, retry/smoke
 outputs, and baseline checkpoints.
 
 Summary: `results/benchmarks/main_benchmark/SUBMISSION_SUMMARY.md`
+Visual samples in `results/benchmarks/main_benchmark/visuals/main/` are
+best-selected examples from the same benchmark run.
 
 ## External Baselines
 

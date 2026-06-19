@@ -11,6 +11,7 @@
   "width": 80,
   "stride": 10,
   "samples_per_window": 4,
+  "visual_selection": "best-selected examples from the same benchmark run",
   "baseline_policy": {
     "pretrained_hf_weights": "disallowed for MarioGPT and MarioDiffusion in this runner",
     "mariogpt_same_data": "external MarioGPT code path trained from scratch on the same project training split with a small config",

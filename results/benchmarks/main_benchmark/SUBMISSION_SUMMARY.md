@@ -10,6 +10,7 @@ This is the only benchmark set used for the project submission. The goal is to e
 - Training budget: 20 epochs
 - Included methods: TileFlow, MarioGPT same-data small, MarioDiffusion same-data small, and random_fill
 - Excluded material: HF-pretrained supplementary runs, full-paper-scale comparisons, retry/smoke outputs, and baseline checkpoints
+- Visual samples: best-selected examples from the same benchmark run
 
 ## Result
 
